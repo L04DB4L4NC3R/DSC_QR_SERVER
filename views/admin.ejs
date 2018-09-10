@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>admin login</title>
+</head>
+<center>
+    <body>
+        <h1>Admin login</h1> <br>
+        <form action="/admin" method="post">
+            <input type="text" name="name" placeholder="name" id="name"> <br>
+            <input type="password" name="password" placeholder="password" id="pass"> <br>
+            <button>submit</button> <br>
+            <div id="msg"></div>
+        </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("button").on("click",(e)=>{
+            e.preventDefault();
+            
+            $.post("/admin",{
+                name:$("#name").val(),
+                password:$("#pass").val()
+            },(data)=>{
+                if(data.token){
+                    localStorage.setItem("token",data.token);
+                    window.location.replace("/admin/seturl");
+                } else{
+                    $("#msg").html("Wrong name or password");
+                }
+                
+            });
+        });
+    </script>
+
+    </body>
+</center>
+</html>

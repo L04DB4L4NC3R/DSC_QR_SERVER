@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set URL</title>
+</head>
+<center>
+    <body>
+        <h1>Set url</h1> <br>
+        <div id="old"></div> <br>
+        <form action="/admin/seturl" method="post">
+            <input type="text" name="url" placeholder="Enter new url" id="url">
+            <br> <button>submit</button>
+        </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $("#old").html("");
+            $.ajax({
+                url:"/admin/geturl",
+                type:"get",
+                headers:{
+                    Authorization:localStorage.getItem("token")
+                },
+                success:(data)=>{
+                    if(data.url === undefined){
+                        $("#old").html("You are not authorized");
+                    }
+                    else
+                        $("#old").html(`Current url:  ${data.url}`);
+                    }
+            })
+
+            $("button").on("click",(e)=>{
+                e.preventDefault();
+                $.aj
+            })
+        });
+    </script>
+    </body>
+</center>
+</html>

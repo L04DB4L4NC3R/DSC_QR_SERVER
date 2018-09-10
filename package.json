@@ -12,17 +12,18 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.14"
   },
-  "apidoc":{
+  "apidoc": {
     "name": "DSC VIT",
     "version": "0.1.0",
     "description": "DSC QR code server docs",
     "apidoc": {
       "title": "DSC QR code server docs",
-      "url" : "http://localhost:3000/"
+      "url": "http://localhost:3000/"
     }
   }
 }

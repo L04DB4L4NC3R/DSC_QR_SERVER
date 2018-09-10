@@ -4,6 +4,11 @@ const urlmodel = require("../schema/schema").urlmodel;
 const verify = require("../helpers/verify").verify;
 
 
+
+router.get("/admin",(req,res,next)=>{
+    res.render("admin");
+});
+
 /**
  * @api {post} /admin admin login
  * @apiName admin login
@@ -82,9 +87,26 @@ router.post("/admin/seturl",verify,(req,res,next)=>{
 router.get("/",async (req,res,next)=>{
     let url = await urlmodel.find({});
     if(!url)
-        return next(new Error("No url found"));
+        return res.json({
+            message:"No url in database"
+        });
     res.redirect(url[0].url);
 });
 
+
+router.get("/admin/geturl",verify,(req,res,next)=>{
+    urlmodel.find({})
+    .then((u)=>{
+        if(u.length === 0)
+            return res.send({url:''});
+        res.json({url:u[0].url});
+    });
+});
+
+
+
+router.get("/admin/seturl",(req,res,next)=>{
+    res.render("seturl");
+});
 
 module.exports = router;
