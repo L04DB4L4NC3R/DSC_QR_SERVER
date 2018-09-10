@@ -35,7 +35,19 @@
 
             $("button").on("click",(e)=>{
                 e.preventDefault();
-                $.aj
+                $.ajax({
+                    url:"/admin/seturl",
+                    type:"post",
+                    data:{
+                        url:$("#url").val()
+                    },
+                    headers:{
+                        Authorization:localStorage.getItem("token")
+                    },
+                    success:(data)=>{
+                        location.reload();
+                    }
+                });
             })
         });
     </script>
