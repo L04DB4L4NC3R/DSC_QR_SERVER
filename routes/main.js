@@ -94,6 +94,17 @@ router.get("/",async (req,res,next)=>{
 });
 
 
+/**
+ * @api {get} /admin/geturl get current url
+ * @apiName get current url
+ * @apiGroup admin
+ * @apiPermission admin
+ * 
+ * @apiParamExample {json} response-example
+ * {
+    "url": "https://www.youtube.com"
+}
+ */
 router.get("/admin/geturl",verify,(req,res,next)=>{
     urlmodel.find({})
     .then((u)=>{

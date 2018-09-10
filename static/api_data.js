@@ -37,6 +37,30 @@ define({ "api": [
     "groupTitle": "admin"
   },
   {
+    "type": "get",
+    "url": "/admin/geturl",
+    "title": "get current url",
+    "name": "get_current_url",
+    "group": "admin",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "examples": [
+        {
+          "title": "response-example",
+          "content": "{\n    \"url\": \"https://www.youtube.com\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/main.js",
+    "groupTitle": "admin"
+  },
+  {
     "type": "post",
     "url": "/admin/seturl",
     "title": "set url",
