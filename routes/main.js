@@ -86,7 +86,7 @@ router.post("/admin/seturl",verify,(req,res,next)=>{
  */
 router.get("/",async (req,res,next)=>{
     let url = await urlmodel.find({});
-    if(!url)
+    if(url.length===0)
         return res.json({
             message:"No url in database"
         });
