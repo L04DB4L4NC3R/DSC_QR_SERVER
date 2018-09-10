@@ -1,0 +1,84 @@
+define({ "api": [
+  {
+    "type": "post",
+    "url": "/admin",
+    "title": "admin login",
+    "name": "admin_login",
+    "group": "admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>username of the admin</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the admin</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "response-example",
+          "content": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImxldmVsIjoiYWRtaW4iLCJpYXQiOjE1MzY1OTAwNTB9.OuY7qSRUZNrG9AWk_kl0pejhFJg1hJkBleWxPtVwVDs\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/main.js",
+    "groupTitle": "admin"
+  },
+  {
+    "type": "post",
+    "url": "/admin/seturl",
+    "title": "set url",
+    "name": "set_url",
+    "group": "admin",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "url",
+            "description": "<p>url to be updated</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "response-example",
+          "content": "{\n    \"old\": \"https://www.google.com/\",\n    \"new\": \"https://www.youtube.com/\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/main.js",
+    "groupTitle": "admin"
+  },
+  {
+    "type": "get",
+    "url": "/",
+    "title": "redirect to url",
+    "name": "redirect_to_url",
+    "group": "all",
+    "version": "0.0.0",
+    "filename": "routes/main.js",
+    "groupTitle": "all"
+  }
+] });
