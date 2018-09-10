@@ -11,7 +11,7 @@ app.use(express.static("static"));
 app.set("view engine","ejs");
 
 // MONGODB
-mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true});
+mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true});
 mongoose.connection
 .once("open",()=>console.log("connected to DB"))
 .on("err",()=>console.log("error connecting to DB"));
