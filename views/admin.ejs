@@ -12,12 +12,14 @@
         <form action="/admin" method="post">
             <input type="text" name="name" placeholder="name" id="name"> <br>
             <input type="password" name="password" placeholder="password" id="pass"> <br>
-            <button>submit</button> <br>
-            <div id="msg"></div>
+            <button id="submit">submit</button> <br>
         </form>
+        <button id="logout">logout</button> <br>
+        <div id="msg"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        $("button").on("click",(e)=>{
+        $("#submit").on("click",(e)=>{
             e.preventDefault();
             
             $.post("/admin",{
@@ -32,6 +34,12 @@
                 }
                 
             });
+        });
+
+        $("#logout").on("click",(e)=>{
+            e.preventDefault();
+            localStorage.clear();
+            $("#msg").html("You have successfully been logged out");
         });
     </script>
 

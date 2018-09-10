@@ -12,8 +12,9 @@
         <div id="old"></div> <br>
         <form action="/admin/seturl" method="post">
             <input type="text" name="url" placeholder="Enter new url" id="url">
-            <br> <button>submit</button>
+            <br> <button id="submit">submit</button> <br>
         </form>
+        <button id="logout">logout</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(()=>{
@@ -33,7 +34,7 @@
                     }
             })
 
-            $("button").on("click",(e)=>{
+            $("#submit").on("click",(e)=>{
                 e.preventDefault();
                 $.ajax({
                     url:"/admin/seturl",
@@ -49,7 +50,14 @@
                     }
                 });
             })
+
+            $("#logout").on("click",(e)=>{
+                e.preventDefault();
+                localStorage.clear();
+                window.location.replace("/admin");
+            });
         });
+
     </script>
     </body>
 </center>
